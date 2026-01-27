@@ -21,12 +21,10 @@ final class LanguageManger {
             let saved = UserDefaults.standard.string(forKey: key)
             return AppLanguage(rawValue: saved ?? "") ?? .english
         }
-        
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: key)
         }
     }
-    
     
 }
 

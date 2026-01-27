@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  ios task App
 //
 //  Created by Mustafa Nour on 17/12/2025.
@@ -13,38 +13,37 @@ protocol LoginViewControllerDelegate: AnyObject {
 
 class LoginViewController: UIViewController {
     
+    weak var delegate: LoginViewControllerDelegate?
     let viewModel = LoginViewModel()
-    
+
     let languageButton = UIButton(type: .system)
     let titleLabel = UILabel()
-    let loginView = LoginView()
+    let loginView = LoginView() 
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
     let registerButton = UIButton(type: .system)
 
-    
     private var languageLeadingConstraint: NSLayoutConstraint!
     private var languageTrailingConstraint: NSLayoutConstraint!
-    
-    
+
     var usernameText: String? {
-        return loginView.PhoneTextField.text
+        return loginView.phoneInputView.phoneTextField.text
     }
-    
+
     var passwordText: String? {
         return loginView.passwordTextField.text
     }
-    
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         bindViewModel()
-        setup()
-        layout()
+        setupUI()
+        setupLayout()
         applyLanguageAnimation(animated: false)
-        
     }
-    
+
     func bindViewModel() {
         viewModel.onLanguageChanged = { [weak self] in
             self?.applyLanguageAnimation(animated: true)
@@ -52,148 +51,144 @@ class LoginViewController: UIViewController {
     }
 }
 
+// MARK: - Setup UI
 extension LoginViewController {
 
-    private func setup() {
-        
-        //language button setup
+    private func setupUI() {
+        // Language Button
         languageButton.setTitle("English", for: .normal)
         languageButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
         languageButton.translatesAutoresizingMaskIntoConstraints = false
-        let isArabic = UIView.userInterfaceLayoutDirection(for: view.semanticContentAttribute) == .leftToRight
-        view.addSubview(languageButton)
-        
-          languageLeadingConstraint = languageButton.leadingAnchor
-            .constraint(equalTo: view.leadingAnchor, constant: 16)
-        
-          languageTrailingConstraint = languageButton.trailingAnchor
-            .constraint(equalTo: view.trailingAnchor, constant: -16)
-        
-        NSLayoutConstraint.activate([
-            languageButton.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor,
-                constant: 16
-            )
-        ])
-        
         languageButton.addTarget(self, action: #selector(changeLanguageTapped), for: .touchUpInside)
-        
-        //titleLabel
+        view.addSubview(languageButton)
+
+        // Title Label
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "Login"
+        titleLabel.text = viewModel.signInText
         titleLabel.font = .systemFont(ofSize: 30, weight: .bold)
-        titleLabel.textAlignment = .left
         titleLabel.adjustsFontForContentSizeCategory = true
-        
+
+        // LoginView
         loginView.translatesAutoresizingMaskIntoConstraints = false
-        
-        //signinButton
-        signInButton.translatesAutoresizingMaskIntoConstraints = false
-        signInButton.setTitle("Sign In", for: [])
-        signInButton.configuration = .filled()
-        signInButton.layer.cornerRadius = 8
-        signInButton.configuration?.imagePadding = 8
-        signInButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        signInButton.addTarget(self, action: #selector(loginTapped), for: .primaryActionTriggered)
-        
-        //errorMessageLabel
+        loginView.onPickerStateChanged = { [weak self] isOpen in
+            if isOpen {
+                self?.view.bringSubviewToFront(self?.loginView.superview ?? UIView())
+                self?.loginView.superview?.bringSubviewToFront(self?.loginView ?? UIView())
+            }
+        }
+
+        // Error Message
         errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         errorMessageLabel.textAlignment = .center
         errorMessageLabel.textColor = .systemRed
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.isHidden = true
-        
-        //RegisterButton
+
+        // Sign In Button
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.setTitle("Sign In", for: .normal)
+        signInButton.configuration = .filled()
+        signInButton.layer.cornerRadius = 8
+        signInButton.addTarget(self, action: #selector(loginTapped), for: .primaryActionTriggered)
+        signInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
+        // Register Button
         registerButton.translatesAutoresizingMaskIntoConstraints = false
-        registerButton.setTitle("Register", for: [])
+        registerButton.setTitle("Register", for: .normal)
         registerButton.configuration = .filled()
         registerButton.layer.cornerRadius = 8
-        registerButton.configuration?.imagePadding = 8
-        registerButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        registerButton.addTarget(self, action: #selector(loginTapped), for: .primaryActionTriggered)
-
+        registerButton.addTarget(self, action: #selector(registerTapped), for: .primaryActionTriggered)
+        registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-    
-    private func layout() {
-        let stackView = UIStackView(arrangedSubviews: [
+
+    private func setupLayout() {
+        // Language button constraints
+        languageLeadingConstraint = languageButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
+        languageTrailingConstraint = languageButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        NSLayoutConstraint.activate([
+            languageButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
+        ])
+
+        if viewModel.isArabic {
+            languageTrailingConstraint.isActive = false
+            languageLeadingConstraint.isActive = true
+        } else {
+            languageLeadingConstraint.isActive = false
+            languageTrailingConstraint.isActive = true
+        }
+
+        // Main Stack
+        let mainStack = UIStackView(arrangedSubviews: [
             titleLabel,
             loginView,
-            signInButton,
             errorMessageLabel,
+            signInButton,
             registerButton
         ])
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 20
-        stackView.alignment = .fill
-        stackView.distribution = .fill
-        view.addSubview(stackView)
-        
-        //stackView
+        mainStack.translatesAutoresizingMaskIntoConstraints = false
+        mainStack.axis = .vertical
+        mainStack.spacing = 16
+        mainStack.alignment = .fill
+        mainStack.distribution = .fill
+        view.addSubview(mainStack)
+
+        // Main stack constraints
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            //titleLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: loginView.leadingAnchor, multiplier: 1)
+            mainStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            mainStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            mainStack.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
-        
-        //signInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
 
+// MARK: - Actions
 extension LoginViewController {
-    
+
     @objc func changeLanguageTapped() {
         viewModel.toggleLanguage()
     }
-    
-    @objc func loginTapped(sender: UIButton) {
+
+    @objc func loginTapped() {
         errorMessageLabel.isHidden = true
-        login()
-    }
-    
-    func login() {
-        guard let usernameText = usernameText, let passwordText = passwordText else {
-            assertionFailure(viewModel.errprMessageTExt)
-            return
-        }
-        
-        if usernameText.isEmpty || passwordText.isEmpty {
+
+        // Validate username/password
+        guard let username = loginView.phoneInputView.phoneTextField.text,
+              let password = loginView.passwordTextField.text,
+              !username.isEmpty, !password.isEmpty else {
             errorMessageLabel.isHidden = false
             errorMessageLabel.text = viewModel.errprMessageTExt
             return
         }
-    }
-    
-    
-    func applyLanguageAnimation( animated: Bool){
-        let isArabic = viewModel.isArabic
         
-        titleLabel.textAlignment = isArabic ? .right : .left
-        //signInButton.contentHorizontalAlignment = isArabic ? .right : .left
+        delegate?.didLogin()
+    }
+
+    @objc func registerTapped() {
+        print("Register tapped")
+    }
+
+    func applyLanguageAnimation(animated: Bool) {
+
+        titleLabel.textAlignment = viewModel.isArabic ? .right : .left
+        loginView.updateLanguage(isArabic: viewModel.isArabic)
         
         titleLabel.text = viewModel.titleText
         signInButton.setTitle(viewModel.signInText, for: .normal)
-        languageButton.setTitle(viewModel.languageButtonText, for: .normal)
         registerButton.setTitle(viewModel.registerText, for: .normal)
+        languageButton.setTitle(viewModel.languageButtonText, for: .normal)
         errorMessageLabel.text = viewModel.errprMessageTExt
-        
+
+        // Language button constraints
         languageLeadingConstraint.isActive = false
         languageTrailingConstraint.isActive = false
-        
-        if isArabic {
+
+        if viewModel.isArabic {
             languageLeadingConstraint.isActive = true
         } else {
             languageTrailingConstraint.isActive = true
         }
-        
-        let animations = {
-            self.view.layoutIfNeeded()
-        }
-        
+
+        let animations = { self.view.layoutIfNeeded() }
         animated ? UIView.animate(withDuration: 0.35, animations: animations) : animations()
     }
-    
-    
-    
 }

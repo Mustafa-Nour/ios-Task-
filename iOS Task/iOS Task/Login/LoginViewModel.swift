@@ -44,6 +44,6 @@ final class LoginViewModel {
     }
     
     var errprMessageTExt: String {
-        isArabic ?  "لا يمكن لرقم الهاتف او كلمه المرور ان تكون موجوده" : "Phone Number/Password should never be empty"
+        isArabic ?  "الرجاء ملئ جميع الحقول": "Phone Number/Password should never be empty"
     }
 }
