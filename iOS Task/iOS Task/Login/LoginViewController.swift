@@ -108,15 +108,15 @@ extension LoginViewController {
         NSLayoutConstraint.activate([
             languageButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16)
         ])
-
-        if viewModel.isArabic {
+        
+        if LanguageManger.shared.isArabic {
             languageTrailingConstraint.isActive = false
             languageLeadingConstraint.isActive = true
         } else {
             languageLeadingConstraint.isActive = false
             languageTrailingConstraint.isActive = true
         }
-
+        
         // Main Stack
         let mainStack = UIStackView(arrangedSubviews: [
             titleLabel,
@@ -131,7 +131,7 @@ extension LoginViewController {
         mainStack.alignment = .fill
         mainStack.distribution = .fill
         view.addSubview(mainStack)
-
+        
         // Main stack constraints
         NSLayoutConstraint.activate([
             mainStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),

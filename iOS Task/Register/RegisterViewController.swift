@@ -145,15 +145,31 @@ extension RegisterViewController {
         errorMessageLabel.isHidden = true
         
         let name = registerView.nameTextField.text ?? ""
+        let email = registerView.emailTextField.text ?? ""
         let phone = registerView.phoneInputView.fullPhoneNumber()
         let password = registerView.passwordTextField.text ?? ""
         let confirmPassword = registerView.confirmPasswordTextField.text ?? ""
         
-        let result = viewModel.validateAll(name: name, phone: phone, password: password, confirmPassword: confirmPassword)
+        let result = viewModel.validateAll(name: name, email: email, phone: phone, password: password, confirmPassword: confirmPassword)
         
         switch result {
         case .success:
-         
+            AuthService.shared.registerUser(name: name, email: email, phone: phone, password: password) { [weak self] result in
+                switch result {
+                case .success:
+                    print("Firebase registration successful!")
+                    DispatchQueue.main.async {
+                        self?.delegate?.didRegister()
+                    }
+                    
+                case .failure(let error):
+                    print("Firebase error: \(error.localizedDescription)")
+                    DispatchQueue.main.async {
+                        self?.errorMessageLabel.isHidden = false
+                        self?.errorMessageLabel.text = error.localizedDescription
+                    }
+                }
+            }
             delegate?.didRegister()
             
         case .failure(let error):

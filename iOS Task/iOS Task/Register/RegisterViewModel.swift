@@ -22,7 +22,7 @@ final class RegisterViewModel {
     }
     
     func validatePhone(_ phone: String) -> Bool {
-        let phoneRegex = "^[0-9]{9,15}$"
+        let phoneRegex = "^\\+?[0-9]{9,15}$"
         let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         return phonePredicate.evaluate(with: phone)
     }

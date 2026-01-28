@@ -22,7 +22,7 @@ final class PhoneInputView: UIView {
 
     
     private let countries: [Country] = [
-        .init(name: "مصر", code: "+20", flag: "🇪🇬", maxLength: 10),
+        .init(name: "مصر", code: "+20", flag: "🇪🇬", maxLength: 11),
         .init(name: "السعودية", code: "+966", flag: "🇸🇦", maxLength: 9),
         .init(name: "البحرين", code: "+973", flag: "🇧🇭", maxLength: 8),
         .init(name: "الإمارات العربية المتحدة", code: "+971", flag: "🇦🇪", maxLength: 9),

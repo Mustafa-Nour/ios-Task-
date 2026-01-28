@@ -36,13 +36,14 @@ final class RegisterViewModel {
     }
     
     // MARK: - Error Messages (Localized)
-    
     func getErrorMessage(for error: ValidationError) -> String {
         switch error {
         case .emptyFields:
             return "error_empty_fields".localized
         case .invalidName:
             return "error_invalid_name".localized
+        case .invalidEmail:
+            return "error_invalid_email".localized
         case .invalidPhone:
             return "error_invalid_phone".localized
         case .weakPassword:
@@ -64,6 +65,11 @@ final class RegisterViewModel {
         // Validate name
         guard validateName(name) else {
             return .failure(.invalidName)
+        }
+        
+        // Validate email
+        guard validateEmail(email) else {
+            return .failure(.invalidEmail)
         }
         
         // Validate phone
@@ -96,6 +102,7 @@ final class RegisterViewModel {
 enum ValidationError: Error {
     case emptyFields
     case invalidName
+    case invalidEmail
     case invalidPhone
     case weakPassword
     case passwordMismatch

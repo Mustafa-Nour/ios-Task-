@@ -12,6 +12,8 @@ class RegisterView: UIView {
     let stackView = UIStackView()
     let nameContainer = UIView()
     let nameTextField = UITextField()
+    let emailContainer = UIView()
+    let emailTextField = UITextField()
     let phoneInputView = PhoneInputView()
     let passwordContainer = UIView()
     let passwordTextField = UITextField()
@@ -31,15 +33,17 @@ class RegisterView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: 300, height: 300)
+        return CGSize(width: 300, height: 420)
     }
 }
 
 extension RegisterView {
-    
     func updateLanguage(isArabic: Bool) {
         nameTextField.placeholder = "name".localized
         nameTextField.textAlignment = isArabic ? .right : .left
+        
+        emailTextField.placeholder = "email".localized
+        emailTextField.textAlignment = isArabic ? .right : .left
         
         passwordTextField.placeholder = "password".localized
         passwordTextField.textAlignment = isArabic ? .right : .left
@@ -66,6 +70,9 @@ extension RegisterView {
         // Name Container
         setupContainer(nameContainer, textField: nameTextField, placeholder: "name".localized)
         
+        // Email Container
+        setupContainer(emailContainer, textField: emailTextField, placeholder: "email".localized)
+        
         // Phone Input
         phoneInputView.translatesAutoresizingMaskIntoConstraints = false
         phoneInputView.onPickerStateChanged = { [weak self] isOpen in
@@ -80,11 +87,11 @@ extension RegisterView {
         
         // Password Container
         setupContainer(passwordContainer, textField: passwordTextField, placeholder: "password".localized, isSecure: true)
-        
+
         // Confirm Password Container
         setupContainer(confirmPasswordContainer, textField: confirmPasswordTextField, placeholder: "confirm_password".localized, isSecure: true)
     }
-    
+    //custom container for reuse
     private func setupContainer(_ container: UIView, textField: UITextField, placeholder: String, isSecure: Bool = false) {
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.borderWidth = 1
@@ -98,15 +105,16 @@ extension RegisterView {
         textField.delegate = self
         textField.borderStyle = .none
     }
-    
     func layout() {
         // Add textfields to containers
         nameContainer.addSubview(nameTextField)
+        emailContainer.addSubview(emailTextField)
         passwordContainer.addSubview(passwordTextField)
         confirmPasswordContainer.addSubview(confirmPasswordTextField)
         
         // Add to stack
         stackView.addArrangedSubview(nameContainer)
+        stackView.addArrangedSubview(emailContainer)
         stackView.addArrangedSubview(phoneInputView)
         stackView.addArrangedSubview(passwordContainer)
         stackView.addArrangedSubview(confirmPasswordContainer)
@@ -124,6 +132,14 @@ extension RegisterView {
             nameTextField.trailingAnchor.constraint(equalTo: nameContainer.trailingAnchor, constant: -12),
             nameTextField.centerYAnchor.constraint(equalTo: nameContainer.centerYAnchor),
             
+            emailContainer.heightAnchor.constraint(equalToConstant: 56),
+            emailTextField.leadingAnchor.constraint(equalTo: emailContainer.leadingAnchor, constant: 12),
+            emailTextField.trailingAnchor.constraint(equalTo: emailContainer.trailingAnchor, constant: -12),
+            emailTextField.centerYAnchor.constraint(equalTo: emailContainer.centerYAnchor),
+
+            
+            phoneInputView.heightAnchor.constraint(equalToConstant: 56),
+            
             passwordContainer.heightAnchor.constraint(equalToConstant: 56),
             passwordTextField.leadingAnchor.constraint(equalTo: passwordContainer.leadingAnchor, constant: 12),
             passwordTextField.trailingAnchor.constraint(equalTo: passwordContainer.trailingAnchor, constant: -12),
@@ -135,6 +151,7 @@ extension RegisterView {
             confirmPasswordTextField.centerYAnchor.constraint(equalTo: confirmPasswordContainer.centerYAnchor)
         ])
     }
+
 }
 
 // MARK: - UITextFieldDelegate
@@ -142,6 +159,8 @@ extension RegisterView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
             phoneInputView.phoneTextField.becomeFirstResponder()
         } else if textField == phoneInputView.phoneTextField {
             passwordTextField.becomeFirstResponder()
