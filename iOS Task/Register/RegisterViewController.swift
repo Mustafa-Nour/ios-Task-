@@ -153,11 +153,7 @@ extension RegisterViewController {
         
         switch result {
         case .success:
-            // TODO: Call Firebase Auth Service
-            print("✅ Validation passed! Ready to register.")
-            print("Name: \(name)")
-            print("Phone: \(phone)")
-            print("Password: \(password)")
+         
             delegate?.didRegister()
             
         case .failure(let error):

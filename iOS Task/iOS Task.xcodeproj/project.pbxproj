@@ -6,30 +6,46 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E57600082F29CE5E00B14296 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576FFFB2F29CE5E00B14296 /* LoginViewModel.swift */; };
+		E576000A2F29CE5E00B14296 /* LanguageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600052F29CE5E00B14296 /* LanguageManger.swift */; };
+		E576000C2F29CE5E00B14296 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576FFF22F29CE5E00B14296 /* AppDelegate.swift */; };
+		E576000D2F29CE5E00B14296 /* PhoneInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576FFFC2F29CE5E00B14296 /* PhoneInputView.swift */; };
+		E576000F2F29CE5E00B14296 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576FFFA2F29CE5E00B14296 /* LoginViewController.swift */; };
+		E57600102F29CE5E00B14296 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576FFF72F29CE5E00B14296 /* SceneDelegate.swift */; };
+		E57600122F29CE5E00B14296 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600002F29CE5E00B14296 /* RegisterView.swift */; };
+		E57600132F29CE5E00B14296 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600062F29CE5E00B14296 /* String+Localization.swift */; };
+		E57600142F29CE5E00B14296 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576FFF92F29CE5E00B14296 /* LoginView.swift */; };
+		E57600162F29CE5E00B14296 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E576FFF62F29CE5E00B14296 /* LaunchScreen.storyboard */; };
+		E57600172F29CE5E00B14296 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E576FFF32F29CE5E00B14296 /* Assets.xcassets */; };
+		E57600192F29CF6100B14296 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600182F29CF6100B14296 /* LoginModel.swift */; };
+		E576001C2F29D01200B14296 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E576001A2F29D01200B14296 /* Localizable.strings */; };
+		E57600212F29D18100B14296 /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600202F29D18100B14296 /* userModel.swift */; };
+		E57600282F29D63100B14296 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600262F29D63100B14296 /* RegisterViewController.swift */; };
+		E57600292F29D63100B14296 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600272F29D63100B14296 /* RegisterViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		E57600002F29CE5E00B14296 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		E57600052F29CE5E00B14296 /* LanguageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManger.swift; sourceTree = "<group>"; };
+		E57600062F29CE5E00B14296 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		E57600182F29CF6100B14296 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		E576001B2F29D01200B14296 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E576001D2F29D07500B14296 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E57600202F29D18100B14296 /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
+		E57600262F29D63100B14296 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E57600272F29D63100B14296 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E576FFF22F29CE5E00B14296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E576FFF32F29CE5E00B14296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E576FFF42F29CE5E00B14296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E576FFF52F29CE5E00B14296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E576FFF72F29CE5E00B14296 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E576FFF92F29CE5E00B14296 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E576FFFA2F29CE5E00B14296 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E576FFFB2F29CE5E00B14296 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		E576FFFC2F29CE5E00B14296 /* PhoneInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputView.swift; sourceTree = "<group>"; };
 		E5F9F14B2F283D2F00486240 /* iOS Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		E5F9F1702F283E2000486240 /* Exceptions for "iOS Task" folder in "iOS Task" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				App/Info.plist,
-			);
-			target = E5F9F14A2F283D2F00486240 /* iOS Task */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		E5F9F14D2F283D2F00486240 /* iOS Task */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				E5F9F1702F283E2000486240 /* Exceptions for "iOS Task" folder in "iOS Task" target */,
-			);
-			path = "iOS Task";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E5F9F1482F283D2F00486240 /* Frameworks */ = {
@@ -42,10 +58,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E57600042F29CE5E00B14296 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				E57600262F29D63100B14296 /* RegisterViewController.swift */,
+				E57600272F29D63100B14296 /* RegisterViewModel.swift */,
+				E57600002F29CE5E00B14296 /* RegisterView.swift */,
+				E57600202F29D18100B14296 /* userModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		E57600072F29CE5E00B14296 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E57600052F29CE5E00B14296 /* LanguageManger.swift */,
+				E57600062F29CE5E00B14296 /* String+Localization.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E576FFF82F29CE5E00B14296 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E576FFF22F29CE5E00B14296 /* AppDelegate.swift */,
+				E576FFF32F29CE5E00B14296 /* Assets.xcassets */,
+				E576FFF42F29CE5E00B14296 /* Info.plist */,
+				E576FFF62F29CE5E00B14296 /* LaunchScreen.storyboard */,
+				E576FFF72F29CE5E00B14296 /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E576FFFD2F29CE5E00B14296 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E576FFF92F29CE5E00B14296 /* LoginView.swift */,
+				E576FFFA2F29CE5E00B14296 /* LoginViewController.swift */,
+				E576FFFB2F29CE5E00B14296 /* LoginViewModel.swift */,
+				E576FFFC2F29CE5E00B14296 /* PhoneInputView.swift */,
+				E57600182F29CF6100B14296 /* LoginModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		E5F9F1422F283D2F00486240 = {
 			isa = PBXGroup;
 			children = (
-				E5F9F14D2F283D2F00486240 /* iOS Task */,
+				E576FFF82F29CE5E00B14296 /* App */,
+				E576FFFD2F29CE5E00B14296 /* Login */,
+				E57600042F29CE5E00B14296 /* Register */,
+				E57600072F29CE5E00B14296 /* Utilities */,
+				E576001A2F29D01200B14296 /* Localizable.strings */,
 				E5F9F14C2F283D2F00486240 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,9 +136,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				E5F9F14D2F283D2F00486240 /* iOS Task */,
 			);
 			name = "iOS Task";
 			packageProductDependencies = (
@@ -104,6 +165,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = E5F9F1422F283D2F00486240;
 			minimizedProjectReferenceProxies = 1;
@@ -125,6 +187,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E57600162F29CE5E00B14296 /* LaunchScreen.storyboard in Resources */,
+				E576001C2F29D01200B14296 /* Localizable.strings in Resources */,
+				E57600172F29CE5E00B14296 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,10 +200,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E57600082F29CE5E00B14296 /* LoginViewModel.swift in Sources */,
+				E576000A2F29CE5E00B14296 /* LanguageManger.swift in Sources */,
+				E576000C2F29CE5E00B14296 /* AppDelegate.swift in Sources */,
+				E576000D2F29CE5E00B14296 /* PhoneInputView.swift in Sources */,
+				E576000F2F29CE5E00B14296 /* LoginViewController.swift in Sources */,
+				E57600212F29D18100B14296 /* userModel.swift in Sources */,
+				E57600282F29D63100B14296 /* RegisterViewController.swift in Sources */,
+				E57600292F29D63100B14296 /* RegisterViewModel.swift in Sources */,
+				E57600102F29CE5E00B14296 /* SceneDelegate.swift in Sources */,
+				E57600192F29CF6100B14296 /* LoginModel.swift in Sources */,
+				E57600122F29CE5E00B14296 /* RegisterView.swift in Sources */,
+				E57600132F29CE5E00B14296 /* String+Localization.swift in Sources */,
+				E57600142F29CE5E00B14296 /* LoginView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E576001A2F29D01200B14296 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E576001B2F29D01200B14296 /* en */,
+				E576001D2F29D07500B14296 /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E576FFF62F29CE5E00B14296 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E576FFF52F29CE5E00B14296 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E5F9F15F2F283D3000486240 /* Debug */ = {

@@ -44,6 +44,7 @@ extension SceneDelegate: LoginViewControllerDelegate {
 
 extension SceneDelegate: RegisterViewControllerDelegate {
     func didRegister() {
+        // TODO: Navigate to MainViewController after successful registration
         print("User registered")
     }
     
