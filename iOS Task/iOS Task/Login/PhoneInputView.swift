@@ -232,7 +232,6 @@ extension PhoneInputView {
         selectedCountry = country
         countryButton.setTitle(country.flag, for: .normal)
         codeLabel.text = country.code
-        // phoneTextField.text = "" // removed to keep user input
         setError(false)
         print("DEBUG: Applied country \(country.name) with flag \(country.flag) and code \(country.code)")
     }
