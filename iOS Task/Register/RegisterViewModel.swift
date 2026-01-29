@@ -21,8 +21,14 @@ final class RegisterViewModel {
         return !name.trimmingCharacters(in: .whitespaces).isEmpty && name.count >= 2
     }
     
+    func validateEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
+    }
+    
     func validatePhone(_ phone: String) -> Bool {
-        let phoneRegex = "^[0-9]{9,15}$"
+        let phoneRegex = "^\\+?[0-9]{9,15}$"
         let phonePredicate = NSPredicate(format: "SELF MATCHES %@", phoneRegex)
         return phonePredicate.evaluate(with: phone)
     }
@@ -55,10 +61,10 @@ final class RegisterViewModel {
     
     // MARK: - Full Validation
     
-    func validateAll(name: String, phone: String, password: String, confirmPassword: String) -> Result<Void, ValidationError> {
+    func validateAll(name: String, email: String, phone: String, password: String, confirmPassword: String) -> Result<Void, ValidationError> {
         
         // Check empty fields
-        guard !name.isEmpty, !phone.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
+        guard !name.isEmpty, !email.isEmpty, !phone.isEmpty, !password.isEmpty, !confirmPassword.isEmpty else {
             return .failure(.emptyFields)
         }
         

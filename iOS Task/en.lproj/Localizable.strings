@@ -1,0 +1,23 @@
+
+/* Login Screen */
+"login_title" = "Login";
+"sign_in" = "Sign In";
+"register" = "Register";
+"password" = "Password";
+"phone_number" = "Phone number";
+"error_empty_fields" = "Phone Number/Password should never be empty";
+"language_button" = "العربية";
+
+/* Register Screen */
+"register_title" = "Create Account";
+"name" = "Name";
+"email" = "Email";
+"confirm_password" = "Confirm Password";
+"already_have_account" = "Already have account? Login";
+
+/* Validation */
+"error_invalid_email" = "Invalid email address";
+"error_password_mismatch" = "Passwords do not match";
+"error_weak_password" = "Password is weak (minimum 6 characters)";
+"error_invalid_name" = "Name must be at least 2 characters";
+"error_invalid_phone" = "Invalid phone number";

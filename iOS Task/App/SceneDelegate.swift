@@ -8,11 +8,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        let loginVC = LoginViewController()
-        loginVC.delegate = self
-        window.rootViewController = loginVC
         window.backgroundColor = .systemBackground
         self.window = window
+
+        if Auth.auth().currentUser != nil {
+            // User is logged in, go to Main
+            let mainVC = MainViewController()
+            window.rootViewController = mainVC
+        } else {
+            // User is not logged in, go to Login
+            let loginVC = LoginViewController()
+            loginVC.delegate = self
+            window.rootViewController = loginVC
+        }
+        
         window.makeKeyAndVisible()
     }
     
@@ -33,10 +42,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogin() {
+        let mainVC = MainViewController()
+        setRootViewController(mainVC)
         print("User logged in")
     }
     
     func didTapRegister() {
+        print("user Registered")
         let registerVC = RegisterViewController()
         registerVC.delegate = self
         setRootViewController(registerVC)
@@ -45,8 +57,9 @@ extension SceneDelegate: LoginViewControllerDelegate {
 
 extension SceneDelegate: RegisterViewControllerDelegate {
     func didRegister() {
-        // TODO: Navigate to MainViewController after successful registration
-        print("User registered")
+        let loginVC = LoginViewController()
+        loginVC.delegate = self
+        setRootViewController(loginVC)
     }
     
     func didTapLogin() {

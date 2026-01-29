@@ -1,38 +1,49 @@
 //
-//  RegisterViewController.swift
-//  iOS Task
+//  LoginViewController.swift
+//  ios task App
 //
-//  Created by Mustafa Nour on 28/01/2026.
+//  Created by Mustafa Nour on 17/12/2025.
 //
 
 import UIKit
 
-protocol RegisterViewControllerDelegate: AnyObject {
-    func didRegister()
-    func didTapLogin()
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+    func didTapRegister()
 }
 
-class RegisterViewController: UIViewController {
+
+
+class LoginViewController: UIViewController {
     
-    weak var delegate: RegisterViewControllerDelegate?
-    let viewModel = RegisterViewModel()
+    weak var delegate: LoginViewControllerDelegate?
+    let viewModel = LoginViewModel()
     
     let languageButton = UIButton(type: .system)
     let titleLabel = UILabel()
-    let registerView = RegisterView()
-    let registerButton = UIButton(type: .system)
+    let loginView = LoginView()
+    let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
-    let loginButton = UIButton(type: .system)
+    let registerButton = UIButton(type: .system)
     
     private var languageLeadingConstraint: NSLayoutConstraint!
     private var languageTrailingConstraint: NSLayoutConstraint!
     
+    var usernameText: String? {
+        return loginView.phoneInputView.phoneTextField.text
+    }
+    
+    var passwordText: String? {
+        return loginView.passwordTextField.text
+    }
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        bindViewModel()
         setupUI()
         setupLayout()
-        bindViewModel()
         applyLanguageAnimation(animated: false)
     }
     
@@ -44,7 +55,7 @@ class RegisterViewController: UIViewController {
 }
 
 // MARK: - Setup UI
-extension RegisterViewController {
+extension LoginViewController {
     
     private func setupUI() {
         // Language Button
@@ -56,16 +67,16 @@ extension RegisterViewController {
         
         // Title Label
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = "register_title".localized
+        titleLabel.text = "login_title".localized
         titleLabel.font = .systemFont(ofSize: 30, weight: .bold)
         titleLabel.adjustsFontForContentSizeCategory = true
         
-        // RegisterView
-        registerView.translatesAutoresizingMaskIntoConstraints = false
-        registerView.onPickerStateChanged = { [weak self] isOpen in
+        // LoginView
+        loginView.translatesAutoresizingMaskIntoConstraints = false
+        loginView.onPickerStateChanged = { [weak self] isOpen in
             if isOpen {
-                self?.view.bringSubviewToFront(self?.registerView.superview ?? UIView())
-                self?.registerView.superview?.bringSubviewToFront(self?.registerView ?? UIView())
+                self?.view.bringSubviewToFront(self?.loginView.superview ?? UIView())
+                self?.loginView.superview?.bringSubviewToFront(self?.loginView ?? UIView())
             }
         }
         
@@ -76,6 +87,14 @@ extension RegisterViewController {
         errorMessageLabel.numberOfLines = 0
         errorMessageLabel.isHidden = true
         
+        // Sign In Button
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.setTitle("sign_in".localized, for: .normal)
+        signInButton.configuration = .filled()
+        signInButton.layer.cornerRadius = 8
+        signInButton.addTarget(self, action: #selector(loginTapped), for: .primaryActionTriggered)
+        signInButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         // Register Button
         registerButton.translatesAutoresizingMaskIntoConstraints = false
         registerButton.setTitle("register".localized, for: .normal)
@@ -83,13 +102,6 @@ extension RegisterViewController {
         registerButton.layer.cornerRadius = 8
         registerButton.addTarget(self, action: #selector(registerTapped), for: .primaryActionTriggered)
         registerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        // Login Button
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.setTitle("already_have_account".localized, for: .normal)
-        loginButton.configuration = .plain()
-        loginButton.addTarget(self, action: #selector(loginTapped), for: .primaryActionTriggered)
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     private func setupLayout() {
@@ -111,14 +123,14 @@ extension RegisterViewController {
         // Main Stack
         let mainStack = UIStackView(arrangedSubviews: [
             titleLabel,
-            registerView,
+            loginView,
             errorMessageLabel,
-            registerButton,
-            loginButton
+            signInButton,
+            registerButton
         ])
         mainStack.translatesAutoresizingMaskIntoConstraints = false
         mainStack.axis = .vertical
-        mainStack.spacing = 20
+        mainStack.spacing = 16
         mainStack.alignment = .fill
         mainStack.distribution = .fill
         view.addSubview(mainStack)
@@ -133,62 +145,55 @@ extension RegisterViewController {
 }
 
 // MARK: - Actions
-extension RegisterViewController {
+extension LoginViewController {
     
     @objc func changeLanguageTapped() {
         let newLanguage: AppLanguage = LanguageManger.shared.currentLanguage == .english ? .arabic : .english
         LanguageManger.shared.currentLanguage = newLanguage
         applyLanguageAnimation(animated: true)
+
     }
-    
-    @objc func registerTapped() {
+
+    @objc func loginTapped() {
         errorMessageLabel.isHidden = true
         
-        let name = registerView.nameTextField.text ?? ""
-        let email = registerView.emailTextField.text ?? ""
-        let phone = registerView.phoneInputView.fullPhoneNumber()
-        let password = registerView.passwordTextField.text ?? ""
-        let confirmPassword = registerView.confirmPasswordTextField.text ?? ""
+        let phone = loginView.phoneInputView.fullPhoneNumber()
+        guard let password = loginView.passwordTextField.text, !password.isEmpty else {
+            errorMessageLabel.isHidden = false
+            errorMessageLabel.text = "error_empty_fields".localized
+            loginView.passwordTextField.layer.borderColor = UIColor.systemRed.cgColor
+            return
+        }
         
-        let result = viewModel.validateAll(name: name, email: email, phone: phone, password: password, confirmPassword: confirmPassword)
-        
-        switch result {
-        case .success:
-            AuthService.shared.registerUser(name: name, email: email, phone: phone, password: password) { [weak self] result in
+        // Show loading or disable button if needed
+        AuthService.shared.loginUser(phone: phone, password: password) { [weak self] result in
+            DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    print("Firebase registration successful!")
-                    DispatchQueue.main.async {
-                        self?.delegate?.didRegister()
-                    }
-                    
+                    print("Login successful!")
+                    self?.delegate?.didLogin()
                 case .failure(let error):
-                    print("Firebase error: \(error.localizedDescription)")
-                    DispatchQueue.main.async {
-                        self?.errorMessageLabel.isHidden = false
-                        self?.errorMessageLabel.text = error.localizedDescription
-                    }
+                    print("Login error: \(error.localizedDescription)")
+                    self?.errorMessageLabel.isHidden = false
+                    self?.errorMessageLabel.text = error.localizedDescription
                 }
             }
-            
-        case .failure(let error):
-            errorMessageLabel.isHidden = false
-            errorMessageLabel.text = viewModel.getErrorMessage(for: error)
         }
     }
     
-    @objc func loginTapped() {
-        delegate?.didTapLogin()
+    @objc func registerTapped() {
+        delegate?.didTapRegister()
     }
     
     func applyLanguageAnimation(animated: Bool) {
-        titleLabel.text = "register_title".localized
+        
+        titleLabel.text = "login_title".localized
+        signInButton.setTitle("sign_in".localized, for: .normal)
         registerButton.setTitle("register".localized, for: .normal)
-        loginButton.setTitle("already_have_account".localized, for: .normal)
         languageButton.setTitle("language_button".localized, for: .normal)
         
         titleLabel.textAlignment = LanguageManger.shared.isArabic ? .right : .left
-        registerView.updateLanguage(isArabic: LanguageManger.shared.isArabic)
+        loginView.updateLanguage(isArabic: LanguageManger.shared.isArabic)
         
         // Language button constraints
         languageLeadingConstraint.isActive = false
