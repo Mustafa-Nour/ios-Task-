@@ -17,20 +17,19 @@ class MainViewController: UITabBarController {
     
     private  func setupViews() {
         let  dummyvc = HomeViewController()
-        let monyVC = FirstScreen()
-        let moreVC = SecondScreenApi()
+        let secondScreenApi = secondScreenApi()
         
         dummyvc.setTapBarImage(imageName: "list.dash.header.rectangle", title: "screen1")
-        monyVC.setTapBarImage(imageName: "arrow.left.arrow.right", title: "apiScreen")
+        secondScreenApi.setTapBarImage(imageName: "arrow.left.arrow.right", title: "apiScreen")
         
         
         let dummyNc = UINavigationController(rootViewController: dummyvc)
-        let monyNC = UINavigationController(rootViewController: monyVC)
+        let screen2 = UINavigationController(rootViewController: secondScreenApi)
         
         //summaryNC.navigationBar.barTintColor = .systemTeal
         hideNavigationBarLine(dummyNc.navigationBar)
         
-        let tabBarList = [dummyNc, monyNC]
+        let tabBarList = [dummyNc, screen2]
         viewControllers = tabBarList
     }
     
@@ -48,14 +47,4 @@ class MainViewController: UITabBarController {
     
     
 }
-class FirstScreen: UIViewController {
-    override func viewDidLoad() {
-        view.backgroundColor = .orange
-    }
-}
 
-class SecondScreenApi: UIViewController {
-    override func viewDidLoad() {
-        view.backgroundColor = .yellow
-    }
-}

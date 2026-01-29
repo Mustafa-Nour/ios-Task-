@@ -1,0 +1,35 @@
+# Xcode
+#
+# Gitignore for Xcode and Swift projects
+
+# Build artifacts
+build/
+DerivedData/
+
+# Personal settings
+xcuserdata/
+
+# Architecture-specific
+*.moved-aside
+*.xcuserstate
+
+# Explicitly exclude CocoaPods/Swift PM artifacts if you want (usually you do)
+# .swiftpm/
+# .build/
+
+# System Files
+.DS_Store
+*.swp
+*.lock
+
+# Local Swift Package Manager
+.build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Bundle
+vendor/bundle/

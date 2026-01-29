@@ -27,6 +27,7 @@
 		E5772B392F2AD17600A6D68D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B382F2AD17600A6D68D /* MainViewController.swift */; };
 		E5772B3B2F2AD26300A6D68D /* UIViewController+utills.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B3A2F2AD26300A6D68D /* UIViewController+utills.swift */; };
 		E5772B3D2F2AD36D00A6D68D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B3C2F2AD36D00A6D68D /* HomeViewController.swift */; };
+		E5772B412F2AF5E700A6D68D /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B402F2AF5E700A6D68D /* SecondScreenViewController.swift */; };
 		E57F40FD2F29E7600074CF10 /* authService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57F40FC2F29E7600074CF10 /* authService.swift */; };
 		E57F41002F29EDAB0074CF10 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E57F40FF2F29EDAB0074CF10 /* FirebaseAuth */; };
 		E57F41022F29EDAB0074CF10 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E57F41012F29EDAB0074CF10 /* FirebaseAuthCombine-Community */; };
@@ -59,6 +60,7 @@
 		E5772B382F2AD17600A6D68D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E5772B3A2F2AD26300A6D68D /* UIViewController+utills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+utills.swift"; sourceTree = "<group>"; };
 		E5772B3C2F2AD36D00A6D68D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E5772B402F2AF5E700A6D68D /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
 		E57F40FC2F29E7600074CF10 /* authService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authService.swift; sourceTree = "<group>"; };
 		E5F9F14B2F283D2F00486240 /* iOS Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,9 +132,24 @@
 			isa = PBXGroup;
 			children = (
 				E5772B382F2AD17600A6D68D /* MainViewController.swift */,
-				E5772B3C2F2AD36D00A6D68D /* HomeViewController.swift */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		E5772B3E2F2AF3B100A6D68D /* horizontal and Vertical Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E5772B3C2F2AD36D00A6D68D /* HomeViewController.swift */,
+			);
+			path = "horizontal and Vertical Screen";
+			sourceTree = "<group>";
+		};
+		E5772B3F2F2AF59C00A6D68D /* apiScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E5772B402F2AF5E700A6D68D /* SecondScreenViewController.swift */,
+			);
+			path = apiScreen;
 			sourceTree = "<group>";
 		};
 		E57F40FB2F29E7490074CF10 /* Services */ = {
@@ -150,6 +167,8 @@
 				E576FFF82F29CE5E00B14296 /* App */,
 				E576FFFD2F29CE5E00B14296 /* Login */,
 				E57600042F29CE5E00B14296 /* Register */,
+				E5772B3E2F2AF3B100A6D68D /* horizontal and Vertical Screen */,
+				E5772B3F2F2AF59C00A6D68D /* apiScreen */,
 				E57F40FB2F29E7490074CF10 /* Services */,
 				E57600072F29CE5E00B14296 /* Utilities */,
 				E576001A2F29D01200B14296 /* Localizable.strings */,
@@ -261,6 +280,7 @@
 				E57600292F29D63100B14296 /* RegisterViewModel.swift in Sources */,
 				E5772B392F2AD17600A6D68D /* MainViewController.swift in Sources */,
 				E57600102F29CE5E00B14296 /* SceneDelegate.swift in Sources */,
+				E5772B412F2AF5E700A6D68D /* SecondScreenViewController.swift in Sources */,
 				E57600192F29CF6100B14296 /* LoginModel.swift in Sources */,
 				E57600122F29CE5E00B14296 /* RegisterView.swift in Sources */,
 				E5772B3D2F2AD36D00A6D68D /* HomeViewController.swift in Sources */,
@@ -302,7 +322,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2J34A2PY4V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/iOS Task/App/Info.plist";
+				INFOPLIST_FILE = "App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -333,7 +353,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2J34A2PY4V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/iOS Task/App/Info.plist";
+				INFOPLIST_FILE = "App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

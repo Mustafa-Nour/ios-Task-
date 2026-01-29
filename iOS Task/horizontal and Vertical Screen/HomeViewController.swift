@@ -25,7 +25,7 @@ class HomeViewController: UIViewController{
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        cv.dataSource = self // 👈 مهم جداً
+        cv.dataSource = self
         cv.backgroundColor = .clear
         cv.showsHorizontalScrollIndicator = false
         return cv
@@ -53,7 +53,7 @@ extension HomeViewController {
         stackView.axis = .vertical
         stackView.spacing = 20
         
-        horizontalLabel.text = "Horizontal Scroll view"
+        horizontalLabel.text = "Horizontal Scroll view (sf"
         horizontalLabel.font = .boldSystemFont(ofSize: 22)
         
         verticalLabel.text = "Vertical scroll View "
@@ -100,6 +100,7 @@ extension HomeViewController {
     
     // MARK: - Verical items
     func setupVerticalItems() {
+        
         for symbol in symbols {
             let rowView = UIView()
             rowView.backgroundColor = .systemGray6

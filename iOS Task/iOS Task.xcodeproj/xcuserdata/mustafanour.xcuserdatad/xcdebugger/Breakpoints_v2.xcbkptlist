@@ -20,5 +20,105 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0360BD4C-2039-49DB-9FE2-3A1141A6A798"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MainView/MainViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51">
+            <Locations>
+               <Location
+                  uuid = "0360BD4C-2039-49DB-9FE2-3A1141A6A798 - 7cf8c6bc73e2bf62"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Task.SecondScreenApi.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; iOS_Task.SecondScreenApi"
+                  moduleName = "iOS Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mustafanour/Desktop/ios%20Development%20/iOS%20Task/iOS%20Task/MainView/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "0360BD4C-2039-49DB-9FE2-3A1141A6A798 - 5f9e7b08b80df6cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Task.SecondScreenApi.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; iOS_Task.SecondScreenApi"
+                  moduleName = "iOS Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mustafanour/Desktop/ios%20Development%20/iOS%20Task/iOS%20Task/MainView/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "0360BD4C-2039-49DB-9FE2-3A1141A6A798 - 8cd6f3c43b94b4a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Task.SecondScreenApi.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;iOS_Task.SecondScreenApi&gt;"
+                  moduleName = "iOS Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mustafanour/Desktop/ios%20Development%20/iOS%20Task/iOS%20Task/MainView/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "0360BD4C-2039-49DB-9FE2-3A1141A6A798 - c1bb4fbce73bc431"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Task.SecondScreenApi.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;iOS_Task.SecondScreenApi&gt;"
+                  moduleName = "iOS Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mustafanour/Desktop/ios%20Development%20/iOS%20Task/iOS%20Task/MainView/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "0360BD4C-2039-49DB-9FE2-3A1141A6A798 - e7ff33b97d5915f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Task.SecondScreenApi.__isolated_deallocating_deinit"
+                  moduleName = "iOS Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mustafanour/Desktop/ios%20Development%20/iOS%20Task/iOS%20Task/MainView/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+               <Location
+                  uuid = "0360BD4C-2039-49DB-9FE2-3A1141A6A798 - 923c904682551ab3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iOS_Task.SecondScreenApi.__deallocating_deinit"
+                  moduleName = "iOS Task.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mustafanour/Desktop/ios%20Development%20/iOS%20Task/iOS%20Task/MainView/MainViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
