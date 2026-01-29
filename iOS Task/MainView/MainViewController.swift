@@ -16,21 +16,34 @@ class MainViewController: UITabBarController {
     }
     
     private  func setupViews() {
-        let  dummyvc = HomeViewController()
+        let  HomeVc = HomeViewController()
         let secondScreenApi = secondScreenApi()
         
-        dummyvc.setTapBarImage(imageName: "list.dash.header.rectangle", title: "screen1")
+        HomeVc.setTapBarImage(imageName: "list.dash.header.rectangle", title: "screen1")
         secondScreenApi.setTapBarImage(imageName: "arrow.left.arrow.right", title: "apiScreen")
         
         
-        let dummyNc = UINavigationController(rootViewController: dummyvc)
-        let screen2 = UINavigationController(rootViewController: secondScreenApi)
+        let dummyNc = UINavigationController(rootViewController: HomeVc)
+        let screen2Nc = UINavigationController(rootViewController: secondScreenApi)
         
         //summaryNC.navigationBar.barTintColor = .systemTeal
         hideNavigationBarLine(dummyNc.navigationBar)
         
-        let tabBarList = [dummyNc, screen2]
+        let tabBarList = [dummyNc, screen2Nc]
         viewControllers = tabBarList
+        
+        // Add settings button to each navigation bar
+        [dummyNc, screen2Nc].forEach { nc in
+            let settingsButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsTapped))
+            nc.viewControllers.first?.navigationItem.rightBarButtonItem = settingsButton
+        }
+    }
+    
+    @objc func settingsTapped() {
+        let settingsVC = SettingsViewController()
+        if let nc = selectedViewController as? UINavigationController {
+            nc.pushViewController(settingsVC, animated: true)
+        }
     }
     
     private func hideNavigationBarLine(_ navigationBar: UINavigationBar) {
