@@ -23,20 +23,25 @@ class APIService {
     
     func fetchPosts(completion: @escaping (Result<[Post], Error>) -> Void) {
         if isConnected {
-            guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else { return }
+            guard let url = URL(string: "https://dummyjson.com/posts") else { return }
             
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let error = error {
                     completion(.failure(error))
                     return
                 }
-                
-                guard let data = data else { return }
-                
+
+                guard let data = data else {
+                    return
+                }
+                                
                 do {
-                    let posts = try JSONDecoder().decode([Post].self, from: data)
+                    // DummyJSON returns posts inside a wrapper object
+                    let response = try JSONDecoder().decode(DummyJSONResponse.self, from: data)
+                    let posts = response.posts
                     self.cachePosts(data)
                     completion(.success(posts))
+                } catch {
                 } catch {
                     completion(.failure(error))
                 }

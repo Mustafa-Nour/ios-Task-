@@ -21,3 +21,9 @@
 "error_weak_password" = "Password is weak (minimum 6 characters)";
 "error_invalid_name" = "Name must be at least 2 characters";
 "error_invalid_phone" = "Invalid phone number";
+"home_tab" = "Home";
+"api_tab" = "API";
+"posts_title" = "Posts List";
+"settings_title" = "Settings";
+"change_language" = "Change Language";
+"logout" = "Logout";

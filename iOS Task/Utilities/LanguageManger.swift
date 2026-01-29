@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import UIKit
+
 enum AppLanguage: String {
     case english = "en"
     case arabic = "ar"
 }
+
 class LanguageManger {
     static let shared = LanguageManger()
     
@@ -30,6 +33,10 @@ class LanguageManger {
             // Update app language
             UserDefaults.standard.set([newValue.rawValue], forKey: "AppleLanguages")
             UserDefaults.standard.synchronize()
+            
+            // Update UI direction
+            let semantic: UISemanticContentAttribute = (newValue == .arabic) ? .forceRightToLeft : .forceLeftToRight
+            UIView.appearance().semanticContentAttribute = semantic
         }
     }
     

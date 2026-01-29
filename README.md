@@ -1,6 +1,4 @@
-# iOS Task
 
-This is an iOS project built with Swift and UIKit.
 
 ## Features
 - Login View with Phone Input
@@ -16,8 +14,3 @@ The project follows a modular structure:
 - **MainView**: Primary application interface.
 - **Services**: Shared services (e.g., Authentication).
 - **Utilities**: Helper classes and extensions.
-
-## Setup
-1. Clone the repository.
-2. Open `iOS Task.xcodeproj` in Xcode.
-3. Run on an iOS Simulator or Device.

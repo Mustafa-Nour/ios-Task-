@@ -7,6 +7,10 @@ struct Post: Codable {
     let userId: Int
 }
 
+struct DummyJSONResponse: Codable {
+    let posts: [Post]
+}
+
 class PostViewModel {
     private(set) var posts: [Post] = []
     var onDataUpdate: (() -> Void)?

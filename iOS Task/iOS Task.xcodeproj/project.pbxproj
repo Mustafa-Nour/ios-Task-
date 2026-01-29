@@ -347,6 +347,7 @@
 				DEVELOPMENT_TEAM = 2J34A2PY4V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App/Info.plist";
+
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -378,6 +379,7 @@
 				DEVELOPMENT_TEAM = 2J34A2PY4V;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "App/Info.plist";
+
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -24,3 +24,9 @@
 
 
 
+"home_tab" = "الرئيسية";
+"api_tab" = "البيانات";
+"posts_title" = "قائمة المقالات";
+"settings_title" = "الإعدادات";
+"change_language" = "تغيير اللغة";
+"logout" = "تسجيل الخروج";

@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func setupUI() {
-        title = "Settings"
+        title = "settings_title".localized
         view.backgroundColor = .systemBackground
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,10 +21,10 @@ class SettingsViewController: UIViewController {
         stackView.spacing = 20
         stackView.alignment = .center
         
-        languageButton.setTitle("Change Language", for: .normal)
+        languageButton.setTitle("change_language".localized, for: .normal)
         languageButton.addTarget(self, action: #selector(languageTapped), for: .touchUpInside)
         
-        logoutButton.setTitle("Logout", for: .normal)
+        logoutButton.setTitle("logout".localized, for: .normal)
         logoutButton.setTitleColor(.systemRed, for: .normal)
         logoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
         
@@ -43,9 +43,16 @@ class SettingsViewController: UIViewController {
         let isArabic = LanguageManger.shared.isArabic
         LanguageManger.shared.currentLanguage = isArabic ? .english : .arabic
         
-        let alert = UIAlertController(title: "Language Changed", message: "Please restart the app to apply changes.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+        // Refresh the entire app UI
+        if let sceneDelegate = view.window?.windowScene?.delegate as? SceneDelegate {
+            let mainVC = MainViewController()
+            sceneDelegate.setRootViewController(mainVC)
+            
+            // Navigate back to settings in the new language
+            if let nc = mainVC.selectedViewController as? UINavigationController {
+                nc.pushViewController(SettingsViewController(), animated: false)
+            }
+        }
     }
     
     @objc func logoutTapped() {

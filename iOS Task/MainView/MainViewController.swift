@@ -19,8 +19,8 @@ class MainViewController: UITabBarController {
         let  HomeVc = HomeViewController()
         let secondScreenApi = secondScreenApi()
         
-        HomeVc.setTapBarImage(imageName: "list.dash.header.rectangle", title: "screen1")
-        secondScreenApi.setTapBarImage(imageName: "arrow.left.arrow.right", title: "apiScreen")
+        HomeVc.setTapBarImage(imageName: "list.dash.header.rectangle", title: "home_tab".localized)
+        secondScreenApi.setTapBarImage(imageName: "arrow.left.arrow.right", title: "api_tab".localized)
         
         
         let dummyNc = UINavigationController(rootViewController: HomeVc)
