@@ -70,6 +70,8 @@ class AuthService {
                 }
             }
         }
+    }
+    
     func signOut() throws {
         try Auth.auth().signOut()
     }
