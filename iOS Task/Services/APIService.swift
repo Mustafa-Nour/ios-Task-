@@ -42,7 +42,6 @@ class APIService {
                     self.cachePosts(data)
                     completion(.success(posts))
                 } catch {
-                } catch {
                     completion(.failure(error))
                 }
             }.resume()

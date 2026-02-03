@@ -34,14 +34,13 @@ final class PhoneInputView: UIView {
      let arrowImage = UIImageView()
      let codeLabel = UILabel()
      let phoneTextField = UITextField()
-    
      let pickerContainer = UIView()
      let tableView = UITableView()
     
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        selectedCountry = countries.first!
+        selectedCountry = countries.first
         setupUI()
         setupPicker()
         applyCountry(selectedCountry)
@@ -49,14 +48,11 @@ final class PhoneInputView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        selectedCountry = countries.first!
+        selectedCountry = countries.first
         setupUI()
         setupPicker()
         applyCountry(selectedCountry)
     }
-    
-    // MARK: Setup UI
-   
 }
 
 extension PhoneInputView {

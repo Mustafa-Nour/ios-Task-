@@ -23,15 +23,15 @@
 		E57600212F29D18100B14296 /* userModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600202F29D18100B14296 /* userModel.swift */; };
 		E57600282F29D63100B14296 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600262F29D63100B14296 /* RegisterViewController.swift */; };
 		E57600292F29D63100B14296 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600272F29D63100B14296 /* RegisterViewModel.swift */; };
+		E57600312F29CE5E00B14296 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600302F29CE5E00B14296 /* Post.swift */; };
+		E57600332F29CE5E00B14296 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600322F29CE5E00B14296 /* APIService.swift */; };
+		E57600352F29CE5E00B14296 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600342F29CE5E00B14296 /* SettingsViewController.swift */; };
+		E57600372F29CE5E00B14296 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600362F29CE5E00B14296 /* User.swift */; };
 		E5772B262F2A94D900A6D68D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5772B252F2A94D900A6D68D /* GoogleService-Info.plist */; };
 		E5772B392F2AD17600A6D68D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B382F2AD17600A6D68D /* MainViewController.swift */; };
 		E5772B3B2F2AD26300A6D68D /* UIViewController+utills.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B3A2F2AD26300A6D68D /* UIViewController+utills.swift */; };
 		E5772B3D2F2AD36D00A6D68D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B3C2F2AD36D00A6D68D /* HomeViewController.swift */; };
 		E5772B412F2AF5E700A6D68D /* SecondScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5772B402F2AF5E700A6D68D /* SecondScreenViewController.swift */; };
-		E57600312F29CE5E00B14296 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600302F29CE5E00B14296 /* Post.swift */; };
-		E57600332F29CE5E00B14296 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600322F29CE5E00B14296 /* APIService.swift */; };
-		E57600352F29CE5E00B14296 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600342F29CE5E00B14296 /* SettingsViewController.swift */; };
-		E57600372F29CE5E00B14296 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57600362F29CE5E00B14296 /* User.swift */; };
 		E57F40FD2F29E7600074CF10 /* authService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57F40FC2F29E7600074CF10 /* authService.swift */; };
 		E57F41002F29EDAB0074CF10 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E57F40FF2F29EDAB0074CF10 /* FirebaseAuth */; };
 		E57F41022F29EDAB0074CF10 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E57F41012F29EDAB0074CF10 /* FirebaseAuthCombine-Community */; };
@@ -39,6 +39,7 @@
 		E57F41062F29EDAB0074CF10 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = E57F41052F29EDAB0074CF10 /* FirebaseDatabase */; };
 		E57F41082F29EDAB0074CF10 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = E57F41072F29EDAB0074CF10 /* FirebaseFirestore */; };
 		E57F410A2F29EDAB0074CF10 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = E57F41092F29EDAB0074CF10 /* FirebaseFirestoreCombine-Community */; };
+		E583D7A72F320E5700FDCB19 /* PostViweModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E583D7A62F320E4D00FDCB19 /* PostViweModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,10 @@
 		E57600202F29D18100B14296 /* userModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userModel.swift; sourceTree = "<group>"; };
 		E57600262F29D63100B14296 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E57600272F29D63100B14296 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		E57600302F29CE5E00B14296 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E57600322F29CE5E00B14296 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		E57600342F29CE5E00B14296 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E57600362F29CE5E00B14296 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E576FFF22F29CE5E00B14296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E576FFF32F29CE5E00B14296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E576FFF42F29CE5E00B14296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,10 +71,7 @@
 		E5772B3C2F2AD36D00A6D68D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E5772B402F2AF5E700A6D68D /* SecondScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenViewController.swift; sourceTree = "<group>"; };
 		E57F40FC2F29E7600074CF10 /* authService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = authService.swift; sourceTree = "<group>"; };
-		E57600302F29CE5E00B14296 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		E57600322F29CE5E00B14296 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		E57600342F29CE5E00B14296 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E57600362F29CE5E00B14296 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E583D7A62F320E4D00FDCB19 /* PostViweModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViweModel.swift; sourceTree = "<group>"; };
 		E5F9F14B2F283D2F00486240 /* iOS Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,15 @@
 				E57600062F29CE5E00B14296 /* String+Localization.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E57600382F29CE5E00B14296 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E57600302F29CE5E00B14296 /* Post.swift */,
+				E57600362F29CE5E00B14296 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E576FFF82F29CE5E00B14296 /* App */ = {
@@ -156,6 +167,7 @@
 		E5772B3F2F2AF59C00A6D68D /* apiScreen */ = {
 			isa = PBXGroup;
 			children = (
+				E583D7A62F320E4D00FDCB19 /* PostViweModel.swift */,
 				E5772B402F2AF5E700A6D68D /* SecondScreenViewController.swift */,
 			);
 			path = apiScreen;
@@ -168,15 +180,6 @@
 				E57600322F29CE5E00B14296 /* APIService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		E57600382F29CE5E00B14296 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				E57600302F29CE5E00B14296 /* Post.swift */,
-				E57600362F29CE5E00B14296 /* User.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E5F9F1422F283D2F00486240 = {
@@ -296,6 +299,7 @@
 				E576000D2F29CE5E00B14296 /* PhoneInputView.swift in Sources */,
 				E576000F2F29CE5E00B14296 /* LoginViewController.swift in Sources */,
 				E57600212F29D18100B14296 /* userModel.swift in Sources */,
+				E583D7A72F320E5700FDCB19 /* PostViweModel.swift in Sources */,
 				E57600282F29D63100B14296 /* RegisterViewController.swift in Sources */,
 				E57600292F29D63100B14296 /* RegisterViewModel.swift in Sources */,
 				E5772B392F2AD17600A6D68D /* MainViewController.swift in Sources */,
@@ -346,8 +350,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2J34A2PY4V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "App/Info.plist";
-
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -378,8 +381,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2J34A2PY4V;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "App/Info.plist";
-
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
